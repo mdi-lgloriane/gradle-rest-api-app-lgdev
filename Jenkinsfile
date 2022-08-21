@@ -4,7 +4,7 @@ pipeline {
         githubPush()
     }
 
-    stages { 
+    stages {
         stage('Build') {
             steps {
                 echo 'Building...'
