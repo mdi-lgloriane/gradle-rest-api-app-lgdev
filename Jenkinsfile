@@ -3,10 +3,10 @@ pipeline {
     triggers {
         githubPush()
     }
-    setBuildStatus("Start Building...", "PENDING");
     stages {
         stage('Build') {
-            steps {     
+            steps {
+                setBuildStatus("Start Building...", "IN PROGRESS");
                 echo 'Building...'
             }
         }
