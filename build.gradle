@@ -1,0 +1,53 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.2'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id 'jacoco'
+}
+
+group = 'com.sofa'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+	implementation 'org.springframework.boot:spring-boot-starter-hateoas'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.data:spring-data-rest-hal-explorer'
+	implementation "org.springdoc:springdoc-openapi-ui:1.6.8"
+	implementation "org.springdoc:springdoc-openapi-webmvc-core:1.6.8"
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.projectlombok:lombok'
+	testAnnotationProcessor 'org.projectlombok:lombok'
+	testCompileOnly 'org.projectlombok:lombok'
+	testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}
+
+test {
+	useJUnitPlatform()
+	finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+	dependsOn test
+}
+
+jacoco {
+    toolVersion = "0.8.8"
+    reportsDirectory = layout.buildDirectory.dir('jacocoReport')
+}
