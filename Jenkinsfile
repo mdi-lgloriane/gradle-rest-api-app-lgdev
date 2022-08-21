@@ -3,7 +3,7 @@ pipeline {
     triggers {
         githubPush()
     }
-
+    setBuildStatus("Start Building...", "PENDING");
     stages {
         stage('Build') {
             steps {     
