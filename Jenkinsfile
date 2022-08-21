@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                setBuildStatus("Start Building...", "IN PROGRESS");
+                setBuildStatus('Start Building...', 'IN PROGRESS');
                 echo 'Building...'
             }
         }
@@ -23,7 +23,7 @@ pipeline {
     }
     post {
         success {
-            setBuildStatus("Build succeeded", "SUCCESS"); 
+            setBuildStatus("Build succeeded", "SUCCESS");
         }
         failure {
             setBuildStatus("Build failed", "FAILURE");
