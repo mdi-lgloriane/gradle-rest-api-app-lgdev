@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                setBuildStatus('Start Building...', 'IN PROGRESS');
+                setBuildStatus('Build Pending...', 'PENDING');
                 echo 'Building...'
             }
         }
