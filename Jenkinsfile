@@ -10,14 +10,24 @@ pipeline {
                 echo 'Building...'
             }
         }
-        stage('Test') {
+        stage('Unit Test') {
             steps {
-                echo 'Testing...'
+                echo 'Unit Testing...'
+            }
+        }
+        stage('Create and Upload Docker Image') {
+            steps {
+                echo 'Create and Upload Docker Image...'
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying...' 
+            }
+        }
+        stage('Functional Test') {
+            steps {
+                echo 'Functional Testing...'
             }
         }
     }
