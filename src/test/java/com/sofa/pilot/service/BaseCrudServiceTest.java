@@ -117,7 +117,7 @@ class BaseCrudServiceTest {
 			crudService.update(apiInput, ID);
 		});
 
-		assertEquals(MOCK_DOMAIN_NOT_FOUND, exception.getMessage());
+		assertEquals("Will cause test failure", exception.getMessage());
 	}
 
 	@Test
