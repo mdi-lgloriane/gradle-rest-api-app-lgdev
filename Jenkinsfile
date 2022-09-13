@@ -21,19 +21,14 @@ pipeline {
         }
 
         stage('Generate Docker Image') {
-            steps {
-                script {
-                    docker.withRegistry("https://${NEXUS_HOST}:${NEXUS_PORT}", 'nexusOssCredentials') {
-                        def customImage = docker.build("${NEXUS_HOST}:${NEXUS_PORT}/repository/docker-hosted/gradle-rest-api-app:${env.GIT_COMMIT}")
-                        customImage.push()
-                    }
-                }
-            }
+				echo 'Generate Docker Image... (to be enabled)' 
         }
 
         stage('Deploy') {
             steps {
                 echo 'Deploying...' 
+                oc login --token=sha256~J2qeV8tPnZ4WWla3MIYn8BITgM9tDHK1uEDmyqGR6K4 --server=https://api.sandbox-m2.ll9k.p1.openshiftapps.com:6443 
+				oc create secret generic test-secret --from-literal=username=user --from-literal=password=pass  
             }
         }
 
