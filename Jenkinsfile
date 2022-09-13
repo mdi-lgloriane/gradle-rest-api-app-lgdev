@@ -21,7 +21,9 @@ pipeline {
         }
 
         stage('Generate Docker Image') {
+            steps {
 				echo 'Generate Docker Image... (to be enabled)' 
+			}
         }
 
         stage('Deploy') {
