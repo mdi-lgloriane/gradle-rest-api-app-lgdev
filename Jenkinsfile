@@ -28,7 +28,7 @@ pipeline {
             steps {
                 echo 'Deploying...' 
                 
-				oc create secret generic test-secret --from-literal=username=user --from-literal=password=pass  
+				oc create secret generic test-secret3
             }
         }
 
