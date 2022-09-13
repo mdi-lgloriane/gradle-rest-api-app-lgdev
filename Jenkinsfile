@@ -27,7 +27,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying...' 
-                oc login --token=sha256~J2qeV8tPnZ4WWla3MIYn8BITgM9tDHK1uEDmyqGR6K4 --server=https://api.sandbox-m2.ll9k.p1.openshiftapps.com:6443 
+                
 				oc create secret generic test-secret --from-literal=username=user --from-literal=password=pass  
             }
         }
