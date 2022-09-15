@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Create and Upload Docker Image') {
             steps {
-                echo 'Create and Upload Docker Image...'
+                echo 'Create and Upload Docker Image... added something' 
             }
         }
         stage('Deploy') {
