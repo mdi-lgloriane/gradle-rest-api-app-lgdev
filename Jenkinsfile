@@ -22,15 +22,18 @@ pipeline {
 
         stage('Generate Docker Image') {
             steps {
-				echo 'Generate Docker Image... (to be enabled)' 
-			}
+                script {
+                    docker.withRegistry("https://18.143.153.76:${NEXUS_PORT}", 'nexusOssCredentials') {
+                        def customImage = docker.build("${NEXUS_HOST}:${NEXUS_PORT}/repository/docker-hosted/gradle-rest-api-app:${env.GIT_COMMIT}")
+                        customImage.push()
+                    }
+                }
+            }
         }
 
         stage('Deploy') {
             steps {
                 echo 'Deploying...' 
-                
-				oc create secret generic test-secret3
             }
         }
 
