@@ -23,8 +23,8 @@ pipeline {
         stage('Generate Docker Image') {
             steps {
                 script {
-                    docker.withRegistry("http://18.143.153.76:${NEXUS_PORT}", 'nexusOssCredentials') {
-                        def customImage = docker.build("${NEXUS_HOST}:${NEXUS_PORT}/repository/docker-hosted/gradle-rest-api-app:${env.GIT_COMMIT}")
+                    docker.withRegistry("18.143.153.76:${NEXUS_PORT}", 'nexusOssCredentials') {
+                        def customImage = docker.build("18.143.153.76:${NEXUS_PORT}/repository/docker-hosted/gradle-rest-api-app:${env.GIT_COMMIT}")
                         customImage.push()
                     }
                 }
